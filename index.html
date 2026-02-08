@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>植物性格测试</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: linear-gradient(180deg, #f6f9f7, #ffffff);
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      padding: 28px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 30px;
+    }
+    .question {
+      margin-bottom: 24px;
+    }
+    .question h3 {
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+    .option {
+      display: block;
+      padding: 10px 14px;
+      margin-bottom: 8px;
+      border-radius: 10px;
+      border: 1px solid #e5e7eb;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .option:hover {
+      background: #f0f7f3;
+      border-color: #9ad0b2;
+    }
+    input[type="radio"] {
+      margin-right: 8px;
+    }
+    button {
+      width: 100%;
+      padding: 14px;
+      font-size: 16px;
+      border-radius: 12px;
+      border: none;
+      background: #34a853;
+      color: #fff;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover {
+      background: #2e8f49;
+    }
+    .result {
+      display: none;
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 14px;
+      background: #f6f9f7;
+    }
+    .result h2 {
+      margin-top: 0;
+    }
+    .emoji {
+      font-size: 32px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🌱 植物性格测试</h1>
+    <div class="subtitle">选出最符合你直觉的答案，看看你是哪种植物性格</div>
+
+    <form id="quiz">
+      <div class="question">
+        <h3>1. 当你遇到挑战时，你会怎么做？</h3>
+        <label class="option"><input type="radio" name="q1" value="A">A. 先在心里默默计划，然后慢慢行动</label>
+        <label class="option"><input type="radio" name="q1" value="B">B. 马上尝试不同办法，看看哪种有效</label>
+        <label class="option"><input type="radio" name="q1" value="C">C. 找身边的人一起商量解决方法</label>
+        <label class="option"><input type="radio" name="q1" value="D">D. 按步骤稳稳推进，不急不躁</label>
+        <label class="option"><input type="radio" name="q1" value="E">E. 顺其自然，随缘看看事情如何发展</label>
+      </div>
+
+      <div class="question">
+        <h3>2. 你最喜欢的环境是？</h3>
+        <label class="option"><input type="radio" name="q2" value="A">A. 窗台上阳光正好的角落，暖洋洋的光洒在身上</label>
+        <label class="option"><input type="radio" name="q2" value="B">B. 微风轻轻吹拂的露台，空气里带着花香</label>
+        <label class="option"><input type="radio" name="q2" value="C">C. 好朋友们轻声聊天的空间，让人觉得自在</label>
+        <label class="option"><input type="radio" name="q2" value="D">D. 安静整洁的小屋或书房，一切井然有序</label>
+        <label class="option"><input type="radio" name="q2" value="E">E. 随心布置的小空间，自己喜欢怎么放就怎么放</label>
+      </div>
+
+      <div class="question">
+        <h3>3. 你的能量来源主要是？</h3>
+        <label class="option"><input type="radio" name="q3" value="A">A. 独自完成任务后得到的满足感</label>
+        <label class="option"><input type="radio" name="q3" value="B">B. 尝试新事物或变化时的兴奋感</label>
+        <label class="option"><input type="radio" name="q3" value="C">C. 和朋友或同事在一起时的互动与支持</label>
+        <label class="option"><input type="radio" name="q3" value="D">D. 按计划完成目标时的安全感</label>
+        <label class="option"><input type="radio" name="q3" value="E">E. 自由自在，随性安排时间和空间</label>
+      </div>
+
+      <div class="question">
+        <h3>4. 面对变化，你通常的态度是？</h3>
+        <label class="option"><input type="radio" name="q4" value="A">A. 主动去探索变化带来的可能性</label>
+        <label class="option"><input type="radio" name="q4" value="B">B. 快速尝试适应，并找到最适合自己的方式</label>
+        <label class="option"><input type="radio" name="q4" value="C">C. 与伙伴一起商量、协作应对</label>
+        <label class="option"><input type="radio" name="q4" value="D">D. 慢慢调整，让自己稳住节奏</label>
+        <label class="option"><input type="radio" name="q4" value="E">E. 随遇而安，顺其自然去感受变化</label>
+      </div>
+
+      <div class="question">
+        <h3>5. 如果你要种一盆没种过的植物，你会怎么做？</h3>
+        <label class="option"><input type="radio" name="q5" value="A">A. 仔细按照说明书或指导书操作，每天观察变化</label>
+        <label class="option"><input type="radio" name="q5" value="B">B. 尝试不同摆放位置和组合，看看效果如何</label>
+        <label class="option"><input type="radio" name="q5" value="C">C. 请教种过的朋友，参考他们的经验</label>
+        <label class="option"><input type="radio" name="q5" value="D">D. 上网查资料或视频，学习最佳养护方法</label>
+        <label class="option"><input type="radio" name="q5" value="E">E. E.随心浇水和摆放，只要自己喜欢就好</label>
+      </div>
+
+      <button type="button" onclick="calculateResult()">查看测试结果</button>
+    </form>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    const results = {
+      A: {
+        title: "阳光型植物 – Sunflower Spirit",
+        emoji: "🌻",
+        text: "你如向阳而生的植物，总在光的指引下坚定生长。无论风雨如何，你都努力伸展每一片叶子，让生命在光影中闪耀。今天，请为自己的坚持喝彩，让光照亮前行的每一步。<br><br><em>You grow like a sun-seeking plant, always reaching toward the light. No matter the storms, you stretch every leaf with care, letting your life shine in the interplay of light and shadow. Today, cheer for your persistence, and let the sunlight guide every step of your journey.</em>"
+      },
+      B: {
+        title: "自由型植物 – Free Spirit",
+        emoji: "🌿",
+        text: "你如风中舞动的花朵，随心绽放，勇于探索未知。每一次跃动，都将生命的活力洒向四方。今天，请为你的勇气喝彩，让自由的风带你去更远的地方。<br><br><em>You bloom like a flower dancing in the wind, freely unfolding and bravely exploring the unknown. Each flutter spreads the vitality of your life far and wide. Today, cheer for your courage, and let the winds of freedom carry you to new horizons.</em>"
+      },
+      C: {
+        title: "群体型植物 – Team Player",
+        emoji: "🌱",
+        text: "你如枝叶相连的绿植，与伙伴共同生长。你的温暖与力量，不仅支撑自己，也点亮他人。今天，请为你的温暖喝彩，让这份光芒感染每一个你关心的人。<br><br><em>You grow like intertwining vines with your companions, flourishing through mutual support and care. Your warmth and strength support not only yourself but also light up those around you. Today, cheer for your kindness, and let your light touch everyone you care for.</em>"
+      },
+      D: {
+        title: "稳扎型植物 – Steady Grower",
+        emoji: "🌵",
+        text: "你如坚实的多肉，稳健而有力，默默积累每一份养分，让生命厚实而丰盈。今天，请为你的坚持喝彩，让每一份努力都开出灿烂的花。<br><br><em>You grow like a sturdy succulent, steady and strong, quietly gathering every bit of nourishment, letting your life become rich and full. Today, cheer for your persistence, and may every effort bloom into radiant flowers.</em>"
+      },
+      E: {
+        title: "随缘型植物 – Go-with-the-Flow",
+        emoji: "🌾",
+        text: "你如轻柔的蕨叶，随风舒展，灵动而自在。你懂得顺应环境，让每一个当下都生出柔和的美。今天，请为你的自由喝彩，让生活的每一刻都轻盈欢快。<br><br><em>You grow like gentle ferns, unfolding with the wind, agile and free. You embrace your surroundings, letting each moment blossom with soft beauty. Today, cheer for your freedom, and let every moment of life be light and joyful.</em>"
+      }
+    };
+
+    function calculateResult() {
+      const counts = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+      const order = [];
+
+      for (let i = 1; i <= 5; i++) {
+        const answer = document.querySelector(`input[name="q${i}"]:checked`);
+        if (!answer) {
+          alert("请完成所有题目再查看结果哦 🌱");
+          return;
+        }
+        counts[answer.value]++;
+        order.push(answer.value);
+      }
+
+      let max = 0;
+      let finalType = order[0];
+      for (const key in counts) {
+        if (counts[key] > max) {
+          max = counts[key];
+          finalType = key;
+        }
+      }
+
+      const r = results[finalType];
+      const resultDiv = document.getElementById("result");
+      resultDiv.style.display = "block";
+      resultDiv.innerHTML = `<h2><span class="emoji">${r.emoji}</span> ${r.title}</h2><p>${r.text}</p>`;
+      resultDiv.scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
+</body>
+</html>
